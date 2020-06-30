@@ -74,7 +74,7 @@ Swift Package Manager:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/abdalali/Unboxing.git")
+    .package(url: "https://github.com/abdalaliii/Unboxing.git")
 ]
 ```
 
