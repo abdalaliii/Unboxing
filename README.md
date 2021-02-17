@@ -68,6 +68,30 @@ let drinksJson = """
 let drinks = try JSONDecoder().decodeHeterogeneousArray(OfFamily: DrinkFamily.self, from: drinksJson)
 ```
 
+### Update
+
+I've added the possibility to decode and flatten JSON with dynamic keys. Let's consider the following snippet:
+
+```json
+{
+  "1": {
+    "name": "john"
+  },
+  "2": {
+    "name": "smith"
+  }
+}
+```
+To extract the data from the above json, all you have to do is define your model and ask the JSONDecode to use `DecodedArray` new type.
+
+```swift
+struct Person: Decodable {
+  let name: String
+}
+
+let _ = try JSONDecoder().decode(DecodedArray<Person>.self, from: barJson)
+```
+
 ### Installation
 
 Swift Package Manager:
