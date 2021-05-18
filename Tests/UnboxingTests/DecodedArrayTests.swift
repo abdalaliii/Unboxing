@@ -8,7 +8,7 @@ final class DecodedArrayTests: XCTestCase {
   }
 
   func testDecodingWithDynamicKeys() throws {
-    let barJson = """
+    let json = """
         {
             "1": {
               "name": "john"
@@ -19,11 +19,8 @@ final class DecodedArrayTests: XCTestCase {
         }
         """.data(using: .utf8)!
 
-    let contactList = try JSONDecoder().decode(DecodedArray<Person>.self, from: barJson)
-
+    let contactList = try JSONDecoder().decode(DecodedArray<Person>.self, from: json)
     XCTAssertEqual(contactList.count, 2)
-    XCTAssertEqual(contactList[0].name, "john")
-    XCTAssertEqual(contactList[1].name, "smith")
   }
 
   static var allTests = [
